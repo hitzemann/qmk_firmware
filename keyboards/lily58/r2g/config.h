@@ -21,6 +21,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 //#define SERIAL_USE_MULTI_TRANSACTION
 
+// I don't have a locking switch, free up some memory
+#undef LOCKING_SUPPORT_ENABLE
+#undef LOCKING_RESYNC_ENABLE
+
+// Less than 8 layers, free up some memory
+#define LAYER_STATE_8BIT
+
+// No music mode, free up some memory
+#define NO_MUSIC_MODE
 
 #ifdef RGB_MATRIX_ENABLE
 #   define RGB_DI_PIN D3
@@ -36,11 +45,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #   define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #   define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
-#   define ENABLE_RGB_MATRIX_ALPHAS_MODS
-#   define ENABLE_RGB_MATRIX_BREATHING
-#   define ENABLE_RGB_MATRIX_HUE_WAVE
-#   define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
+//#   define ENABLE_RGB_MATRIX_ALPHAS_MODS
+//#   define ENABLE_RGB_MATRIX_BREATHING
+//#   define ENABLE_RGB_MATRIX_HUE_WAVE
+//#   define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
 #   define ENABLE_RGB_MATRIX_RAINBOW_BEACON
+#   define ENABLE_RGB_PIXEL_FRACTAL
 
 #if defined(RGB_MATRIX_KEYPRESSES) || defined(RGB_MATRIX_KEYRELEASES)
 #   define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
